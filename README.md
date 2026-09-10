@@ -1,6 +1,6 @@
 # NextUs
 
-Premium static website for NextUs, a digital studio focused on websites, e-commerce, branding, multilingual experiences, and custom digital solutions.
+Premium static website for NextUs.
 
 ## Structure
 - `index.html` home
@@ -9,13 +9,13 @@ Premium static website for NextUs, a digital studio focused on websites, e-comme
 - `pricing.html` pricing
 - `about.html` about
 - `contact.html` contact
-- `styles.css` shared design system
-- `script.js` shared interactions
-- `vercel.json` deployment headers
+- `styles.css` shared responsive design system
+- `script.js` shared navigation, language, and reveal interactions
+- `vercel.json` deployment/security configuration
 
 ## Launch checklist
-1. Replace placeholder contact email.
+1. Replace the placeholder contact email.
 2. Connect the contact form to EmailJS or a secure backend.
-3. Replace placeholder portfolio visuals/case studies with real work.
+3. Replace placeholder portfolio material with real client work and outcomes.
 4. Add `logo.jpg` if using a custom logo asset.
-5. Connect the GitHub repository to Vercel for automatic deployments.
+5. Connect this repository to Vercel for automatic production deployments.
