@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#10100f">
+<title>NextUs OS — Command Center</title>
+<style>
+:root{color-scheme:dark;--bg:#10100f;--panel:#171715;--panel2:#1d1d1a;--line:#30302a;--text:#f2f0e9;--muted:#a19f95;--gold:#c6a45b;--green:#a9c7a0;--red:#df9a8e}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 80% -15%,#332b1b 0,transparent 38%),var(--bg);color:var(--text);font:14px/1.5 Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}button,input,select,textarea{font:inherit}button,a{transition:.18s ease}a{color:inherit;text-decoration:none}.shell{display:grid;grid-template-columns:225px minmax(0,1fr);min-height:100vh}.sidebar{border-right:1px solid var(--line);padding:27px 16px;background:#111110;display:flex;flex-direction:column;gap:28px}.brand{display:flex;align-items:center;gap:10px;padding:0 10px;font-weight:750;letter-spacing:.16em;font-size:13px}.mark{width:27px;height:27px;border:1px solid var(--gold);display:grid;place-items:center;color:var(--gold);font-size:12px;letter-spacing:0}.label{font-size:10px;color:#77766e;letter-spacing:.16em;font-weight:700;padding:0 10px;margin-bottom:8px}.nav{display:grid;gap:4px}.nav button{border:0;text-align:left;background:transparent;color:var(--muted);padding:11px 12px;border-radius:7px;cursor:pointer;display:flex;gap:11px;align-items:center}.nav button:hover,.nav button.active{background:#28251d;color:var(--text)}.nav button.active{box-shadow:inset 2px 0 var(--gold)}.nav .ico{width:18px;text-align:center;color:var(--gold)}.side-bottom{margin-top:auto;border-top:1px solid var(--line);padding:17px 10px 0;color:var(--muted);font-size:12px}.status{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--green);margin-right:7px}.main{padding:30px clamp(18px,4vw,52px);max-width:1500px;width:100%;margin:0 auto}.top{display:flex;justify-content:space-between;gap:18px;align-items:center;border-bottom:1px solid var(--line);padding-bottom:23px;margin-bottom:28px}.eyebrow{font-size:10px;letter-spacing:.16em;color:var(--gold);font-weight:700}.top h1{font-size:clamp(24px,3vw,34px);letter-spacing:-.04em;margin:5px 0 0}.date{color:var(--muted);font-size:12px;text-align:right}.actions{display:flex;gap:8px;flex-wrap:wrap}.btn{border:1px solid var(--line);background:var(--panel2);color:var(--text);border-radius:6px;padding:9px 13px;cursor:pointer}.btn:hover{border-color:var(--gold)}.btn.gold{background:var(--gold);color:#15130f;border-color:var(--gold);font-weight:700}.btn.danger{color:var(--red)}.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:13px;margin-bottom:24px}.card{background:linear-gradient(145deg,#1b1b18,#151513);border:1px solid var(--line);border-radius:10px;padding:18px}.metric-top{display:flex;justify-content:space-between;color:var(--muted);font-size:12px}.metric-icon{color:var(--gold)}.metric{font-size:31px;letter-spacing:-.04em;font-weight:650;margin:14px 0 2px}.sub{color:var(--muted);font-size:11px}.columns{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(270px,.85fr);gap:16px}.section-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:15px}.section-head h2{font-size:15px;margin:0;font-weight:650}.section-head span{font-size:11px;color:var(--muted)}.quick{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.quick a{background:#20201c;border:1px solid var(--line);border-radius:7px;padding:14px}.quick a:hover{border-color:var(--gold);transform:translateY(-1px)}.quick strong{display:block;font-size:13px;margin-bottom:4px}.quick small{color:var(--muted);font-size:11px}.quick .qicon{color:var(--gold);margin-bottom:10px;font-size:17px}.tasklist{display:grid;gap:8px}.task{display:flex;gap:10px;align-items:flex-start;padding:10px 0;border-bottom:1px solid #292923}.task input{accent-color:var(--gold);margin-top:4px}.task label{flex:1}.task.done label{text-decoration:line-through;color:#77766e}.task small{display:block;color:var(--muted);font-size:11px;margin-top:3px}.empty{padding:22px 8px;text-align:center;color:var(--muted);font-size:12px}.view{display:none}.view.active{display:block}.toolbar{display:flex;justify-content:space-between;gap:12px;align-items:center;margin-bottom:15px;flex-wrap:wrap}.search{background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:10px 12px;color:var(--text);min-width:210px;outline:none}.search:focus,input:focus,select:focus,textarea:focus{border-color:var(--gold)}.table-wrap{overflow:auto;border:1px solid var(--line);border-radius:9px;background:var(--panel)}table{width:100%;border-collapse:collapse;min-width:620px}th,td{text-align:left;padding:13px 15px;border-bottom:1px solid var(--line);font-size:12px}th{color:var(--muted);font-size:10px;text-transform:uppercase;letter-spacing:.1em;background:#1d1d19}tr:last-child td{border-bottom:0}.pill{font-size:10px;border:1px solid #4a4330;border-radius:99px;padding:3px 8px;color:var(--gold);white-space:nowrap}.pill.green{color:var(--green);border-color:#344735}.pill.red{color:var(--red);border-color:#50342f}.row-actions{display:flex;gap:5px}.mini{background:transparent;border:1px solid var(--line);color:var(--muted);padding:5px 7px;border-radius:5px;cursor:pointer}.mini:hover{color:var(--text);border-color:var(--gold)}.formgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}.field{display:grid;gap:6px}.field.full{grid-column:1/-1}.field label{font-size:11px;color:var(--muted)}.field input,.field select,.field textarea{width:100%;background:#111110;border:1px solid var(--line);color:var(--text);border-radius:6px;padding:10px;outline:none}.field textarea{min-height:80px;resize:vertical}.modal{position:fixed;inset:0;background:#000b;display:none;place-items:center;padding:18px;z-index:5}.modal.open{display:grid}.dialog{background:#191916;border:1px solid var(--line);border-radius:12px;padding:22px;width:min(520px,100%);max-height:90vh;overflow:auto}.dialog-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}.dialog h2{margin:0;font-size:18px}.footnote{color:var(--muted);font-size:11px;margin-top:18px;line-height:1.6}.notice{border:1px solid #4a4330;background:#262218;padding:12px;border-radius:7px;color:#d8c99e;font-size:12px;margin-bottom:18px}.hidden{display:none!important}
+@media(max-width:900px){.shell{grid-template-columns:70px minmax(0,1fr)}.sidebar{padding:22px 8px}.brand{padding:0;justify-content:center;font-size:0}.brand .mark{flex-shrink:0}.label,.nav .navtext,.side-bottom{display:none}.nav button{justify-content:center;padding:12px 4px}.nav .ico{font-size:17px}.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.columns{grid-template-columns:1fr}.main{padding:22px 18px}}@media(max-width:540px){.top{align-items:flex-start;flex-direction:column}.date{text-align:left}.grid{gap:8px}.card{padding:13px}.metric{font-size:26px}.quick{grid-template-columns:1fr 1fr}.formgrid{grid-template-columns:1fr}.field.full{grid-column:auto}}
+</style>
+</head>
+<body>
+<div class="shell">
+<aside class="sidebar">
+<a class="brand" href="#" data-view="overview"><span class="mark">N</span>NEXTUS <span style="color:var(--gold)">OS</span></a>
+<div><div class="label">WORKSPACE</div><nav class="nav" aria-label="Main navigation">
+<button class="active" data-view="overview"><span class="ico">◫</span><span class="navtext">Overview</span></button>
+<button data-view="leads"><span class="ico">◎</span><span class="navtext">Leads & CRM</span></button>
+<button data-view="projects"><span class="ico">▤</span><span class="navtext">Projects</span></button>
+<button data-view="tasks"><span class="ico">✓</span><span class="navtext">Tasks</span></button>
+<button data-view="resources"><span class="ico">↗</span><span class="navtext">Quick links</span></button>
+</nav></div>
+<div class="side-bottom"><span class="status"></span>Local workspace<br><span style="display:block;margin-top:7px">NEXTUS · DIGITAL SYSTEMS</span></div>
+</aside>
+<main class="main">
+<header class="top"><div><div class="eyebrow">NEXTUS / COMMAND CENTER</div><h1 id="pageTitle">Good work starts with clarity.</h1></div><div><div class="date" id="today"></div><div class="actions" style="margin-top:10px"><button class="btn" id="exportBtn">Export data ↗</button><button class="btn gold" id="newBtn">＋ New item</button></div></div></header>
+<div id="overview" class="view active">
+<div class="grid">
+<div class="card"><div class="metric-top"><span>Active leads</span><span class="metric-icon">◎</span></div><div class="metric" id="leadMetric">0</div><div class="sub">Potential client relationships</div></div>
+<div class="card"><div class="metric-top"><span>Active projects</span><span class="metric-icon">▤</span></div><div class="metric" id="projectMetric">0</div><div class="sub">Work in progress</div></div>
+<div class="card"><div class="metric-top"><span>Open tasks</span><span class="metric-icon">✓</span></div><div class="metric" id="taskMetric">0</div><div class="sub">Actions still to do</div></div>
+<div class="card"><div class="metric-top"><span>Follow-ups due</span><span class="metric-icon">◷</span></div><div class="metric" id="dueMetric">0</div><div class="sub">Leads due today or overdue</div></div>
+</div>
+<div class="columns">
+<section class="card"><div class="section-head"><h2>Priority tasks</h2><button class="mini" data-goto="tasks">View all ↗</button></div><div id="priorityTasks" class="tasklist"></div></section>
+<section class="card"><div class="section-head"><h2>Quick access</h2><span>YOUR DAILY TOOLS</span></div><div class="quick">
+<a href="https://github.com/Tempo-web-app/NextUs" target="_blank" rel="noreferrer"><div class="qicon">⌘</div><strong>GitHub</strong><small>Source code & commits</small></a>
+<a href="https://vercel.com/dashboard" target="_blank" rel="noreferrer"><div class="qicon">▲</div><strong>Vercel</strong><small>Deployments & domains</small></a>
+<a href="https://mail.google.com/" target="_blank" rel="noreferrer"><div class="qicon">✉</div><strong>Business email</strong><small>Inbox & outreach</small></a>
+<a href="https://www.facebook.com/" target="_blank" rel="noreferrer"><div class="qicon">↗</div><strong>Social media</strong><small>Brand presence</small></a>
+<a href="https://next-us-two.vercel.app/" target="_blank" rel="noreferrer"><div class="qicon">◈</div><strong>Live website</strong><small>NextUs production site</small></a>
+<a href="https://github.com/Tempo-web-app/NextUs/issues" target="_blank" rel="noreferrer"><div class="qicon">☷</div><strong>Issue tracker</strong><small>Ideas & fixes</small></a>
+</div></section>
+</div>
+<div class="card" style="margin-top:16px"><div class="section-head"><h2>Recent leads</h2><button class="mini" data-goto="leads">Open CRM ↗</button></div><div id="recentLeads"></div></div>
+<p class="footnote">Your command center, not another complicated system. Keep the next action obvious, follow up reliably, and ship good work.</p>
+</div>
+<div id="leads" class="view"><div class="toolbar"><input class="search" id="leadSearch" placeholder="Search leads…" aria-label="Search leads"><button class="btn gold" data-add="lead">＋ Add lead</button></div><div class="table-wrap"><table><thead><tr><th>Business / contact</th><th>Status</th><th>Last contacted</th><th>Follow-up</th><th>Actions</th></tr></thead><tbody id="leadRows"></tbody></table></div><p class="footnote">Only add information you have permission to store. No messages are sent automatically.</p></div>
+<div id="projects" class="view"><div class="toolbar"><input class="search" id="projectSearch" placeholder="Search projects…" aria-label="Search projects"><button class="btn gold" data-add="project">＋ Add project</button></div><div class="table-wrap"><table><thead><tr><th>Project</th><th>Client</th><th>Status</th><th>Repository / URL</th><th>Actions</th></tr></thead><tbody id="projectRows"></tbody></table></div></div>
+<div id="tasks" class="view"><div class="toolbar"><input class="search" id="taskSearch" placeholder="Search tasks…" aria-label="Search tasks"><button class="btn gold" data-add="task">＋ Add task</button></div><div class="table-wrap"><table><thead><tr><th>Task</th><th>Due date</th><th>Priority</th><th>Status</th><th>Actions</th></tr></thead><tbody id="taskRows"></tbody></table></div></div>
+<div id="resources" class="view"><div class="notice">These are shortcuts, not integrations. Opening a service takes you to its website; this dashboard does not read private account data.</div><div class="quick">
+<a href="https://github.com/Tempo-web-app/NextUs" target="_blank" rel="noreferrer"><div class="qicon">⌘</div><strong>NextUs repository</strong><small>Manage source code on GitHub</small></a>
+<a href="https://vercel.com/dashboard" target="_blank" rel="noreferrer"><div class="qicon">▲</div><strong>Vercel dashboard</strong><small>Inspect deployment status</small></a>
+<a href="https://mail.google.com/" target="_blank" rel="noreferrer"><div class="qicon">✉</div><strong>Email</strong><small>Contact and follow-up</small></a>
+<a href="https://next-us-two.vercel.app/" target="_blank" rel="noreferrer"><div class="qicon">◈</div><strong>NextUs website</strong><small>Review the public site</small></a>
+<a href="https://www.facebook.com/NextUs.Jpn" target="_blank" rel="noreferrer"><div class="qicon">f</div><strong>NextUs social</strong><small>Brand updates</small></a>
+<a href="https://github.com/Tempo-web-app/NextUs/issues" target="_blank" rel="noreferrer"><div class="qicon">☷</div><strong>GitHub issues</strong><small>Track improvements</small></a>
+</div><p class="footnote">Edit links in <code>nextus-os/index.html</code> to match your preferred accounts.</p></div>
+</main></div>
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle"><div class="dialog"><div class="dialog-head"><h2 id="modalTitle">New item</h2><button class="mini" id="closeModal" aria-label="Close">✕</button></div><form id="itemForm"><div id="formFields" class="formgrid"></div><div class="actions" style="justify-content:flex-end;margin-top:18px"><button type="button" class="btn" id="cancelModal">Cancel</button><button class="btn gold" type="submit">Save item</button></div></form></div></div>
+<script>
+const KEY='nextus-os-v1';
+const initial={leads:[],projects:[],tasks:[]};
+let data=loadData(), editing=null, currentType='lead';
+function loadData(){try{return {...initial,...JSON.parse(localStorage.getItem(KEY)||'{}')}}catch{return {...initial}}}
+function save(){localStorage.setItem(KEY,JSON.stringify(data));render()}
+function esc(s=''){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function todayISO(){const d=new Date();return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0')}
+function fmtDate(s){if(!s)return '—';const d=new Date(s+'T00:00:00');return Number.isNaN(d.getTime())?esc(s):d.toLocaleDateString(undefined,{year:'numeric',month:'short',day:'numeric'})}
+function emptyRow(n,msg){return '<tr><td colspan="'+n+'" class="empty">'+msg+'</td></tr>'}
+function pill(s){let cls=/done|completed|won|live/i.test(s)?'green':/lost|blocked|overdue/i.test(s)?'red':'';return '<span class="pill '+cls+'">'+esc(s||'New')+'</span>'}
+function render(){
+ document.getElementById('today').textContent=new Date().toLocaleDateString(undefined,{weekday:'long',month:'long',day:'numeric',year:'numeric'});
+ document.getElementById('leadMetric').textContent=data.leads.filter(x=>!['Won','Lost'].includes(x.status)).length;
+ document.getElementById('projectMetric').textContent=data.projects.filter(x=>!['Completed','Archived'].includes(x.status)).length;
+ document.getElementById('taskMetric').textContent=data.tasks.filter(x=>!x.done).length;
+ document.getElementById('dueMetric').textContent=data.leads.filter(x=>x.followup&&x.followup<=todayISO()&&!['Won','Lost'].includes(x.status)).length;
+ const open=data.tasks.filter(x=>!x.done).sort((a,b)=>(a.due||'9999').localeCompare(b.due||'9999')).slice(0,5);
+ document.getElementById('priorityTasks').innerHTML=open.length?open.map(t=>'<div class="task"><input type="checkbox" '+(t.done?'checked':'')+' aria-label="Complete task" data-taskdone="'+t.id+'"><label>'+esc(t.title)+'<small>'+(t.due?'Due '+fmtDate(t.due):'No due date')+' · '+esc(t.priority||'Normal')+'</small></label></div>').join(''):'<div class="empty">No open tasks. Add the next useful action.</div>';
+ const leads=data.leads.slice().reverse().slice(0,5);
+ document.getElementById('recentLeads').innerHTML=leads.length?'<div class="table-wrap"><table><thead><tr><th>Business</th><th>Status</th><th>Follow-up</th></tr></thead><tbody>'+leads.map(l=>'<tr><td><strong>'+esc(l.name)+'</strong><br><span style="color:var(--muted)">'+esc(l.contact||'')+'</span></td><td>'+pill(l.status)+'</td><td>'+fmtDate(l.followup)+'</td></tr>').join('')+'</tbody></table></div>':'<div class="empty">Your CRM is empty. Add a lead when you are ready to track one.</div>';
+ const ls=(document.getElementById('leadSearch')?.value||'').toLowerCase();
+ const l=data.leads.filter(x=>(x.name+' '+x.contact+' '+x.status).toLowerCase().includes(ls));
+ document.getElementById('leadRows').innerHTML=l.length?l.map(x=>'<tr><td><strong>'+esc(x.name)+'</strong><br><span style="color:var(--muted)">'+esc(x.contact||'No contact added')+'</span></td><td>'+pill(x.status)+'</td><td>'+fmtDate(x.last)+'</td><td>'+fmtDate(x.followup)+'</td><td><div class="row-actions"><button class="mini" data-edit="lead" data-id="'+x.id+'">Edit</button><button class="mini" data-delete="lead" data-id="'+x.id+'">Delete</button></div></td></tr>').join(''):emptyRow(5,'No leads found. Add a lead to start your CRM.');
+ const ps=(document.getElementById('projectSearch')?.value||'').toLowerCase();
+ const p=data.projects.filter(x=>(x.name+' '+x.client+' '+x.status).toLowerCase().includes(ps));
+ document.getElementById('projectRows').innerHTML=p.length?p.map(x=>'<tr><td><strong>'+esc(x.name)+'</strong><br><span style="color:var(--muted)">'+esc(x.notes||'')+'</span></td><td>'+esc(x.client||'—')+'</td><td>'+pill(x.status)+'</td><td>'+(x.url?'<a href="'+esc(x.url)+'" target="_blank" rel="noreferrer" style="color:var(--gold)">Open ↗</a>':'—')+'</td><td><div class="row-actions"><button class="mini" data-edit="project" data-id="'+x.id+'">Edit</button><button class="mini" data-delete="project" data-id="'+x.id+'">Delete</button></div></td></tr>').join(''):emptyRow(5,'No projects yet. Add a project to track delivery.');
+ const ts=(document.getElementById('taskSearch')?.value||'').toLowerCase();
+ const tasks=data.tasks.filter(x=>(x.title+' '+x.priority).toLowerCase().includes(ts)).sort((a,b)=>(a.done-b.done)||(a.due||'9999').localeCompare(b.due||'9999'));
+ document.getElementById('taskRows').innerHTML=tasks.length?tasks.map(x=>'<tr><td><strong style="'+(x.done?'text-decoration:line-through;color:var(--muted)':'')+'">'+esc(x.title)+'</strong><br><span style="color:var(--muted)">'+esc(x.notes||'')+'</span></td><td>'+fmtDate(x.due)+'</td><td>'+pill(x.priority||'Normal')+'</td><td>'+pill(x.done?'Completed':'Open')+'</td><td><div class="row-actions"><button class="mini" data-taskdone="'+x.id+'">'+(x.done?'Reopen':'Complete')+'</button><button class="mini" data-edit="task" data-id="'+x.id+'">Edit</button><button class="mini" data-delete="task" data-id="'+x.id+'">Delete</button></div></td></tr>').join(''):emptyRow(5,'No tasks found. Add a concrete next action.');
+}
+const titles={overview:'Good work starts with clarity.',leads:'Build relationships, not spreadsheets.',projects:'Make progress visible.',tasks:'The next action matters.',resources:'Your tools, one click away.'};
+function showView(id){document.querySelectorAll('.view').forEach(v=>v.classList.toggle('active',v.id===id));document.querySelectorAll('[data-view]').forEach(b=>b.classList.toggle('active',b.dataset.view===id));document.getElementById('pageTitle').textContent=titles[id]||'NextUs OS';}
+document.addEventListener('click',e=>{
+ const view=e.target.closest('[data-view],[data-goto]');if(view){e.preventDefault();showView(view.dataset.view||view.dataset.goto);return}
+ const add=e.target.closest('[data-add]');if(add){openForm(add.dataset.add);return}
+ const edit=e.target.closest('[data-edit]');if(edit){openForm(edit.dataset.edit,edit.dataset.id);return}
+ const del=e.target.closest('[data-delete]');if(del){const type=del.dataset.delete,id=del.dataset.id;if(confirm('Delete this item? This cannot be undone.')){data[type==='lead'?'leads':type==='project'?'projects':'tasks']=data[type==='lead'?'leads':type==='project'?'projects':'tasks'].filter(x=>x.id!==id);save()}return}
+ const done=e.target.closest('[data-taskdone]');if(done){const t=data.tasks.find(x=>x.id===done.dataset.taskdone);if(t){t.done=!t.done;save()}return}
+});
+['leadSearch','projectSearch','taskSearch'].forEach(id=>document.getElementById(id).addEventListener('input',render));
+const fields={
+ lead:[['name','Business name','text',true],['contact','Contact name / email','text',false],['status','Status','select',true,['New','Contacted','Replied','Meeting','Proposal sent','Won','Lost']],['last','Last contacted','date',false],['followup','Next follow-up','date',false],['notes','Notes','textarea',false]],
+ project:[['name','Project name','text',true],['client','Client','text',false],['status','Status','select',true,['Planning','In progress','Review','Live','Completed','Blocked']],['url','Repository / deployment URL','url',false],['notes','Notes','textarea',false]],
+ task:[['title','Task','text',true],['due','Due date','date',false],['priority','Priority','select',true,['Low','Normal','High','Urgent']],['notes','Notes','textarea',false]]
+};
+function openForm(type,id=null){
+ currentType=type;editing=id;const key=type==='lead'?'leads':type==='project'?'projects':'tasks';const old=id?data[key].find(x=>x.id===id):{};document.getElementById('modalTitle').textContent=(id?'Edit ':'New ')+({lead:'lead',project:'project',task:'task'}[type]);const container=document.getElementById('formFields');
+ container.innerHTML=fields[type].map(([name,label,kind,required,opts])=>{let val=old?.[name]??(name==='status'?(type==='lead'?'New':type==='project'?'Planning':''):name==='priority'?'Normal':'');let input=kind==='select'?'<select name="'+name+'">'+opts.map(o=>'<option '+(val===o?'selected':'')+'>'+o+'</option>').join('')+'</select>':kind==='textarea'?'<textarea name="'+name+'">'+esc(val)+'</textarea>':'<input name="'+name+'" type="'+kind+'" value="'+esc(val)+'" '+(required?'required':'')+'>';return '<div class="field '+(kind==='textarea'?'full':'')+'"><label>'+label+(required?' *':'')+'</label>'+input+'</div>'}).join('');
+ document.getElementById('modal').classList.add('open');container.querySelector('input,select,textarea')?.focus();
+}
+function closeForm(){document.getElementById('modal').classList.remove('open');editing=null}
+document.getElementById('closeModal').onclick=closeForm;document.getElementById('cancelModal').onclick=closeForm;
+document.getElementById('modal').addEventListener('click',e=>{if(e.target.id==='modal')closeForm()});
+document.getElementById('newBtn').onclick=()=>openForm('task');
+document.getElementById('itemForm').addEventListener('submit',e=>{e.preventDefault();const key=currentType==='lead'?'leads':currentType==='project'?'projects':'tasks';const obj=Object.fromEntries(new FormData(e.target).entries());if(currentType==='task'&&!editing)obj.done=false;if(editing){const i=data[key].findIndex(x=>x.id===editing);if(i>=0)data[key][i]={...data[key][i],...obj}}else data[key].push({id:crypto.randomUUID?crypto.randomUUID():String(Date.now()+Math.random()),...obj});save();closeForm()});
+document.getElementById('exportBtn').onclick=()=>{const blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download='nextus-os-backup-'+todayISO()+'.json';a.click();URL.revokeObjectURL(url)};
+render();
+</script>
+</body></html>
